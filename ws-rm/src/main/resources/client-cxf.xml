@@ -27,11 +27,6 @@
     </cxf:bus>
 
     <!--<wsrm-mgr:rmManager id="org.apache.cxf.ws.rm.RMManager">
-        <wsrm-mgr:deliveryAssurance>
-            <wsrm-mgr:ExactlyOnce />
-            <wsrm-mgr:InOrder />
-        </wsrm-mgr:deliveryAssurance>
-        <wsrm-mgr:sourcePolicy includeOffer="false" />
         <wsrm-mgr:store>
             <ref bean="myClientStore" />
         </wsrm-mgr:store>
