@@ -1,0 +1,46 @@
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:cxf="http://cxf.apache.org/core"
+        xmlns:wsa="http://cxf.apache.org/ws/addressing"
+        xmlns:http="http://cxf.apache.org/transports/http/configuration"
+        xmlns:wsrm-mgr="http://cxf.apache.org/ws/rm/manager"
+        xmlns:jee="http://www.springframework.org/schema/jee"
+        xsi:schemaLocation="
+    http://cxf.apache.org/core
+    http://cxf.apache.org/schemas/core.xsd
+    http://cxf.apache.org/transports/http/configuration
+    http://cxf.apache.org/schemas/configuration/http-conf.xsd
+    http://cxf.apache.org/ws/rm/manager
+    http://cxf.apache.org/schemas/configuration/wsrm-manager.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/jee
+	http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+    <cxf:bus>
+        <cxf:features>
+            <cxf:logging/>
+            <wsa:addressing/>
+            <wsrm-mgr:reliableMessaging/>
+        </cxf:features>
+    </cxf:bus>
+
+    <!--<wsrm-mgr:rmManager id="org.apache.cxf.ws.rm.RMManager">
+        <wsrm-mgr:deliveryAssurance>
+            <wsrm-mgr:ExactlyOnce />
+            <wsrm-mgr:InOrder />
+        </wsrm-mgr:deliveryAssurance>
+        <wsrm-mgr:sourcePolicy includeOffer="false" />
+        <wsrm-mgr:store>
+            <ref bean="myClientStore" />
+        </wsrm-mgr:store>
+    </wsrm-mgr:rmManager>
+
+    <jee:jndi-lookup id="client_dataSource_jndi" jndi-name="java:jboss/datasources/ExampleDS" resource-ref="true" expected-type="javax.sql.DataSource" />
+
+    <bean id="myClientStore" class="org.apache.cxf.ws.rm.persistence.jdbc.RMTxStore">
+        <property name="dataSource" ref="client_dataSource_jndi" />
+    </bean>-->
+
+</beans>
