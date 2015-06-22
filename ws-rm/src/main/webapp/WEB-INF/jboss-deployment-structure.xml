@@ -19,11 +19,6 @@
                     <include path="org**"/>
                 </imports>
             </module>
-            <!--<module name="org.springframework.spring"/>-->
-            <!--<module name="org.apache.cxf"/>-->
-            <!--<module name="org.apache.cxf.impl"/>-->
-            <!--<module name="asm.asm"/>-->
-            <!--<module name="org.jboss.ws.cxf.jbossws-cxf-client"/>-->
         </dependencies>
     </deployment>
 </jboss-deployment-structure>

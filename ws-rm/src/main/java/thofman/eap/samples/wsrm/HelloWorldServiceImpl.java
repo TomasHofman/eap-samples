@@ -24,6 +24,8 @@ import javax.jws.WebService;
 
 import org.apache.cxf.Bus;
 import org.apache.cxf.bus.spring.SpringBusFactory;
+import org.apache.cxf.feature.Features;
+import org.apache.cxf.ws.rm.feature.RMFeature;
 
 /**
  * The implementation of the HelloWorld JAX-WS Web Service.
@@ -37,14 +39,16 @@ import org.apache.cxf.bus.spring.SpringBusFactory;
         targetNamespace = "http://www.jboss.org/jbossas/quickstarts/wshelloworld/HelloWorld",
         wsdlLocation = "WEB-INF/HelloWorldService.wsdl"
 )
+@Features(classes = {RMStoreFeature.class})
 public class HelloWorldServiceImpl implements HelloWorldService {
 
     public HelloWorldServiceImpl() {
+        /* // this doesn't work as expected - created bus instance is not used
         SpringBusFactory busFactory = new SpringBusFactory();
         URL cxfConfig = getClass().getClassLoader().getResource("server-cxf.xml");
         Bus bus = busFactory.createBus(cxfConfig);
         SpringBusFactory.setDefaultBus(bus);
-        SpringBusFactory.setThreadDefaultBus(bus);
+        SpringBusFactory.setThreadDefaultBus(bus);*/
     }
 
     @Override
@@ -54,7 +58,6 @@ public class HelloWorldServiceImpl implements HelloWorldService {
 
     @Override
     public String sayHelloToName(final String name) {
-
         /* Create a list with just the one value */
         final List<String> names = new ArrayList<String>();
         names.add(name);
@@ -77,7 +80,6 @@ public class HelloWorldServiceImpl implements HelloWorldService {
      * @return The list of names separated as described above.
      */
     private String createNameListString(final List<String> names) {
-
         /*
          * If the list is null or empty then assume the call was anonymous.
          */
