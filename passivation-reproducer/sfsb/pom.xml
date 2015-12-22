@@ -1,0 +1,59 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>passivation-reproducer-sfsb</artifactId>
+    <packaging>ejb</packaging>
+    <version>1.0</version>
+    <name>sfsb</name>
+    <parent>
+        <groupId>org.jboss.test.ejb</groupId>
+        <artifactId>passivation-reproducer</artifactId>
+        <version>1.0</version>
+    </parent>
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.ejb3</groupId>
+            <artifactId>jboss-ejb3-ext-api</artifactId>
+        </dependency>
+        <!--
+                &lt;!&ndash; Import the CDI API, we use provided scope as the API is included in JBoss EAP 6 &ndash;&gt;
+                <dependency>
+                    <groupId>javax.enterprise</groupId>
+                    <artifactId>cdi-api</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+
+                &lt;!&ndash; Import the Common Annotations API (JSR-250), we use provided scope
+                    as the API is included in JBoss EAP 6 &ndash;&gt;
+                <dependency>
+                    <groupId>org.jboss.spec.javax.annotation</groupId>
+                    <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+                    <scope>provided</scope>
+                </dependency>
+
+                &lt;!&ndash; Import the EJB API, we use provided scope as the API is included in JBoss EAP 6 &ndash;&gt;
+                <dependency>
+                    <groupId>org.jboss.spec.javax.ejb</groupId>
+                    <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+                    <scope>provided</scope>
+                </dependency>-->
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

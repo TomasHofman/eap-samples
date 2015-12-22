@@ -1,0 +1,52 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>passivation-reproducer-ear</artifactId>
+    <packaging>ear</packaging>
+    <version>1.0</version>
+    <name>ear</name>
+    <parent>
+        <groupId>org.jboss.test.ejb</groupId>
+        <artifactId>passivation-reproducer</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.test.ejb</groupId>
+            <artifactId>passivation-reproducer-sfsb</artifactId>
+            <version>1.0</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.test.ejb</groupId>
+            <artifactId>passivation-reproducer-singleton-test</artifactId>
+            <version>1.0</version>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,38 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>passivation-reproducer-singleton-test</artifactId>
+    <packaging>ejb</packaging>
+    <version>1.0</version>
+    <name>singleton-test</name>
+    <parent>
+        <groupId>org.jboss.test.ejb</groupId>
+        <artifactId>passivation-reproducer</artifactId>
+        <version>1.0</version>
+    </parent>
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.test.ejb</groupId>
+            <artifactId>passivation-reproducer-sfsb</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
